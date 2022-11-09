@@ -72,6 +72,7 @@ class MyApp(App):
 
     def on_button_pressed(self, emitter, n):
         print(n)
+	# 1，按照序号保存；2，按照时间保存
         if n==1:
             global f_num
             f_num = f_num + 1
