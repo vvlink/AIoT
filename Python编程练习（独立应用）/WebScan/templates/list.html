@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>文件列表 </title>
+  <style type="text/css">
+    table { border-collapse:collapse; font-size:12px }
+    tb1 { text-align:center; font-size:12px }
+    th { background: #f4f4f4; cursor: pointer }
+    th,td { padding:5px; border:black solid 1px; white-space:nowrap }
+    th.sorted.ascending:after { content: "  \2191" }
+    th.sorted.descending:after { content: " \2193" }
+    th.no-sort,th.no-sort:hover { background: #f4f4f4; cursor: not-allowed }
+  </style>
+  <script src="{{url_for('static', filename='jquery-3.4.1.min.js')}}"></script>
+  <script src="{{url_for('static', filename='jquery.tablesort.js')}}"></script>
+</head>
+<body>
+<div class="tb1" align="center">
+<table align="center" width="60%">
+<thead>
+  <tr><th>文件名称 </th><th class="number">文件大小（Kb）</th><th>文件时间</th></tr>
+</thead>
+<tbody>
+{% if not files.items() %} 
+<tr><td colspan="3"> 没有可用文件！ </td></tr> 
+{% else %} 
+{% for k,v in files.items() %}  
+  <tr><td><a href="{{k}}" target="_blank">{{k}} </a> </td>
+    <td align="center">{{v["size"]}} </td>
+    <td align="center">{{v["time"]}} </td></tr>  
+{% endfor %} 
+{% endif %} 
+</tbody>
+</table>
+</div>
+ 
+<script type="text/javascript">
+$(function() {
+	$('table').tablesort().data('tablesort');
+	$('thead th.number').data('sortBy', function(th, td, sorter) {
+		return parseInt(td.text(), 10);
+	});
+	//Sorting indicator example
+	$('table.tb1').on('tablesort:start', function(event, tablesort) {
+		$('table.tb1 tbody').addClass("disabled");
+		$('.tb1 th.number').removeClass("sorted").text('Sorting..');
+	});
+	$('table.tb1').on('tablesort:complete', function(event, tablesort) {
+		$('table.tb1 tbody').removeClass("disabled");
+		$('.tb1 th.number').text('Number');
+	});    
+});
+</script>
+ 
+</body>
+</html>
