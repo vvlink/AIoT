@@ -1,6 +1,5 @@
 # 带窗体的摄像头程序，自动推理
 # 模型为1000分类预训练模型（MobielNet）
-import remi
 import PySimpleGUIWeb as sg
 import BaseDeploy as bd
 import cv2  #pip install opencv-python
