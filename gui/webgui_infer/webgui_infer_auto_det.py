@@ -1,6 +1,5 @@
 # 带窗体的摄像头程序，自动推理
 # 模型为80类目标检测预训练模型（SSD_Lite）
-import remi
 import PySimpleGUIWeb as sg
 import BaseDeploy as bd
 import cv2  #pip install opencv-python
