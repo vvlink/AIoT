@@ -1,5 +1,7 @@
-# 带窗体的摄像头程序，自动推理
-# 模型为80类目标检测预训练模型（SSD_Lite）
+'''
+带窗体的摄像头程序，自动推理，模型为80类目标检测预训练模型（SSD_Lite）。
+将“import PySimpleGUIWeb as sg”改为“import PySimpleGUI as sg”即可使用TK的界面
+'''
 import PySimpleGUIWeb as sg
 import BaseDeploy as bd
 import cv2  #pip install opencv-python

@@ -1,6 +1,7 @@
-# 带窗体的摄像头程序，用按钮保存后推理
-# 模型为千分类预训练模型（MobielNet）
-import remi
+'''
+带窗体的摄像头程序，用按钮保存后推理，模型为1000分类预训练模型（MobielNet）。
+将“import PySimpleGUIWeb as sg”改为“import PySimpleGUI as sg”即可使用TK的界面
+'''
 import PySimpleGUIWeb as sg
 import BaseDeploy as bd
 import cv2  #pip install opencv-python

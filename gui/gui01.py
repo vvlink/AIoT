@@ -2,24 +2,21 @@
 import PySimpleGUI as sg
 
 layout = [
-    [sg.Text('请输入你的名字和性别：')],
-    [sg.Input(key='in01')],
-    [sg.Input(key='in02')],
+    [sg.Text('请输入你的名字：')],
+    [sg.Input(key='in')],
     [sg.Button('确认'), sg.Button('取消')],
-    [sg.Text('输出：'), sg.Text(key='out01')]
+    [sg.Text('输出：'), sg.Text(key='out')]
 ]
 window = sg.Window('PySimpleGUI 范例', layout)
 while True:
     # event为按钮的名称，values为一个字典
     event, values = window.read()
-    print(event)
-    print(values)
-    if values['in02']=='男':
-        s = values['in01'] + '先生'
-    else:
-        s = values['in01'] + '女士' 
+    print(event,values)
     if event in (None, '取消'):
-        pass
+        window['in'].update('')
+        window['out'].update('')
     else:
-        window['out01'].update(s)
+        if values:
+            s = '欢迎你，' + values['in']
+        window['out'].update(s)
 window.close()
