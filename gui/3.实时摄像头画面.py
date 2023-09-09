@@ -1,7 +1,7 @@
 # 带窗体的摄像头程序
 import PySimpleGUI as sg  #pip install pysimplegui
 import cv2  #pip install opencv-python
-import numpy as np #pip install numpy
+
 #背景色
 sg.theme('LightGreen')
 #定义窗口布局
